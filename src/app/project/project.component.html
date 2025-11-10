@@ -1,0 +1,99 @@
+<div class="projects-page">
+  <!-- Header Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Professional Projects & Templates</h1>
+        <p class="hero-subtitle">Discover high-quality, market-ready projects, landing pages, and website templates</p>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+          <input 
+            type="text" 
+            class="search-input" 
+            placeholder="Search projects..." 
+            [(ngModel)]="searchTerm"
+            (input)="onSearchInput($event)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rest of your HTML remains the same -->
+  <section class="filters-section">
+    <div class="container">
+      <div class="filters">
+        <button 
+          *ngFor="let category of categories"
+          [class.active]="activeCategory === category.key"
+          (click)="setCategory(category.key)"
+          class="filter-btn">
+          {{ category.label }}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-grid">
+        <div 
+          *ngFor="let project of filteredProjects" 
+          class="project-card"
+          [class]="project.category">
+          
+          <!-- Project Image -->
+          <div class="project-image">
+            <img [src]="project.image" [alt]="project.title">
+            <div class="project-overlay">
+            </div>
+          </div>
+
+          <!-- Project Content -->
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title">{{ project.title }}</h3>
+              <div class="project-rating">
+                <span class="rating-stars">
+                  <span *ngFor="let star of getStars(project.rating)" 
+                        [class.filled]="star === 1">★</span>
+                </span>
+                <span class="rating-value">{{ project.rating }}</span>
+              </div>
+            </div>
+
+            <p class="project-description">{{ project.description }}</p>
+
+            <!-- Technologies -->
+            <div class="technologies">
+              <span *ngFor="let tech of project.technologies" class="tech-tag">
+                {{ tech }}
+              </span>
+            </div>
+
+            <!-- Features -->
+            <div class="project-features">
+              <h4>Key Features:</h4>
+              <ul>
+                <li *ngFor="let feature of project.features">{{ feature }}</li>
+              </ul>
+            </div>
+
+            <!-- Purchase for Templates -->
+            <div class="purchase-buttons">
+                <button class="buy-btn">Purchase Now</button>
+                <button class="buy-btn">Preview</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Results -->
+      <div *ngIf="filteredProjects.length === 0" class="no-results">
+        <h3>No projects found</h3>
+        <p>Try adjusting your search or filter criteria</p>
+      </div>
+    </div>
+  </section>
+</div>

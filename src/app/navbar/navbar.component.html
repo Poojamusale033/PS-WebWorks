@@ -1,0 +1,59 @@
+<nav class="navbar" [class.scrolled]="isScrolled" [class.menu-open]="isMenuOpen">
+  <div class="nav-container">
+    <!-- Logo on the left -->
+    <div class="nav-logo">
+      <div class="logo">
+        <img src="../../assets/img/Logos/black logo.png" alt="Company Logo" height="70">
+      </div>
+    </div>
+
+    <!-- Centered menu -->
+    <div class="nav-menu" [class.active]="isMenuOpen">
+      <a class="nav-link" 
+         routerLink="/" 
+         routerLinkActive="active" 
+         [routerLinkActiveOptions]="{exact: true}"
+         (click)="closeMenu()">
+        <span>Home</span>
+      </a>
+      <a class="nav-link" 
+         routerLink="/about" 
+         routerLinkActive="active"
+         (click)="closeMenu()">
+        <span>About</span>
+      </a>
+      <a class="nav-link" 
+         routerLink="/services" 
+         routerLinkActive="active"
+         (click)="closeMenu()">
+        <span>Services</span>
+      </a>
+      <a class="nav-link" 
+         routerLink="/projects" 
+         routerLinkActive="active"
+         (click)="closeMenu()">
+        <span>Projects</span>
+      </a>
+      <a class="nav-link" 
+         routerLink="/contact" 
+         routerLinkActive="active"
+         (click)="closeMenu()">
+        <span>Contact</span>
+      </a>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="nav-actions">
+      <button class="cta-button" (click)="navigateToContact()">
+        Get Started
+      </button>
+    </div>
+
+    <!-- Enhanced Hamburger menu for mobile -->
+    <div class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+    </div>
+  </div>
+</nav>

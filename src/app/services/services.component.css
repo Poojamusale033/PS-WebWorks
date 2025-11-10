@@ -1,0 +1,133 @@
+.services {
+  padding: 120px 0 80px;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.services-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: #2b2d42; /* Dark Blue */
+  font-weight: 700;
+}
+
+.services-header p {
+  font-size: 1.3rem;
+  color: #8d99ae; /* Light Grey Blue */
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.service-card {
+  background: #edf2f4; /* Off White */
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #edf2f4;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #ef233c; /* Bright Red */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(43, 45, 66, 0.1);
+  background: #ffffff;
+}
+
+.service-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color: #ef233c; /* Bright Red */
+}
+
+.service-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #2b2d42; /* Dark Blue */
+}
+
+.service-description {
+  color: #8d99ae; /* Light Grey Blue */
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.service-features {
+  list-style: none;
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.service-features li {
+  padding: 0.8rem 0;
+  color: #8d99ae; /* Light Grey Blue */
+  position: relative;
+  padding-left: 2rem;
+  font-size: 1.1rem;
+}
+
+.service-features li:before {
+  content: '✓';
+  color: #ef233c; /* Bright Red */
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #ef233c; /* Bright Red */
+  border: 2px solid #ef233c; /* Bright Red */
+  padding: 12px 30px;
+}
+
+.btn-outline:hover {
+  background: #ef233c; /* Bright Red */
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .services-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-card {
+    padding: 2rem 1.5rem;
+  }
+}
